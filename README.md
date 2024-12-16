@@ -171,6 +171,7 @@ block content %}
 
 ```python
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 def login_view(request):
     if request.method == "POST":
@@ -200,8 +201,7 @@ _Внутри представления `register_view` перед перехо
 3. Создайте шаблон для логин формы
 
 ```html
-{% extends 'layout.html' %} {% block title %} Вход {% endblock %} {% block
-content %}
+{% extends 'layout.html' %} {% block title %} Вход {% endblock %} {% block content %}
 <h1>Вход</h1>
 <form class="form-with-validation" action="/users/login/" method="post">
     {% csrf_token %} {{ form }}
